@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+set -e 
+
+rm -rf dev-res
+
+ref="${1:-c90ae893815c10097f813770723b3b4c584bec90}" 
+# K1ll's builds are actual dailies
+date="${2:-20250718}"
+base_name="openmw-${date}-${ref}-Linux-64Bit"
+archive_name="${base_name}.tar.gz"
+base_url="https://redfortune.de/openmw/nightly/${archive_name}"
+
+echo "Downloading development OpenMW archive for ref: ${ref}"
+wget -q --show-progress -O "${archive_name}" "${base_url}"
+
+echo "Extracting development resources folder to $(pwd)/dev-res"    
+tar -xzf "${archive_name}" --strip-components=1  "${base_name}/resources"
+    
+echo "Cleaning up archive"
+rm -f "${archive_name}"
+
+mkdir dev-res
+mv resources dev-res

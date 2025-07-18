@@ -1,0 +1,489 @@
+uniform_bool uCausticsEnabled {
+    default = true;
+    description = "Enable animated procedural underwater caustics.";
+    header = "Caustics";
+}
+uniform_float uCausticsStrength {
+    default = 17.0;
+    min = 0.0;
+    max = 20.0;
+    step = 1.0;
+    description = "Caustics intensity.";
+}
+uniform_float uCausticsScale {
+    default = 0.055;
+    min = 0.0;
+    max = 0.3;
+    step = 0.005;
+    description = "Scale of caustics.";
+}
+uniform_float uCausticsSpeed {
+    default = 1.0;
+    min = 0.0;
+    max = 1.0;
+    step = 0.1;
+    description = "Animation speed.";
+}
+
+uniform_bool uVolumetricRaysEnabled {
+    default = true;
+    description = "Enable volumetric light rays underwater.";
+    header = "Volumetric Light Rays";
+}
+uniform_float uVolumetricRaysStrength {
+    default = 4.0;
+    min = 0.0;
+    max = 5.0;
+    step = 0.1;
+    description = "Strength of volumetric light rays.";
+}
+uniform_int uVolumetricRaysSamples {
+    default = 16;
+    min = 4;
+    max = 64;
+    description = "Number of samples for volumetric light rays (higher = better quality but slower).";
+}
+uniform_float uVolumetricRaysLength {
+    default = 4.0;
+    min = 1.0;
+    max = 30.0;
+    step = 1.0;
+    description = "Maximum length of volumetric light rays.";
+}
+
+uniform_bool uFogEnabled {
+    default = true;
+    description = "Enable underwater fog effect.";
+    header = "Fog";
+}
+uniform_float uFogHeight {
+    default = 82.0;
+    step = 1.0;
+    display_name = "Fog Start Height";
+    description = "Height that the fog starts from";
+}
+uniform_float uFogDensity {
+    default = 0.005;
+    min = 0.0;
+    max = 1.0;
+    step = 0.001;
+    display_name = "Fog Density";
+    description = "Density of the fog, affects falloff";
+}
+uniform_float uFogDensityInterior {
+    default = 0.01;
+    min = 0.0;
+    max = 1.0;
+    step = 0.001;
+    display_name = "Interior Fog Density";
+    description = "Density of the interior fog, affects falloff";
+}
+
+uniform_float uFogColorR {
+    default = 0.070;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Fog Red";
+    description = "Red component of underwater fog color.";
+}
+
+uniform_float uFogColorG {
+    default = 0.126;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Fog Green";
+    description = "Green component of underwater fog color.";
+}
+
+uniform_float uFogColorB {
+    default = 0.128;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Fog Blue";
+    description = "Blue component of underwater fog color.";
+}
+
+uniform_float uFogColorInteriorR {
+    default = 0.090;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Interior Fog Red";
+    description = "Red component of interior underwater fog color.";
+}
+
+uniform_float uFogColorInteriorG {
+    default = 0.116;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Interior Fog Green";
+    description = "Green component of interior underwater fog color.";
+}
+
+uniform_float uFogColorInteriorB {
+    default = 0.127;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Interior Fog Blue";
+    description = "Blue component of interior underwater fog color.";
+}
+
+uniform_bool uTintEnabled {
+    default = true;
+    description = "Enable tint when underwater.";
+    header = "Tint";
+}
+uniform_float uTintStrength {
+    default = 0.50;
+    min = 0.0;
+    max = 1.0;
+    step = 0.05;
+    description = "Intensity of underwater tint effect.";
+}
+uniform_float uTintColorR {
+    default = 0.06;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Tint Red";
+    description = "Red component of underwater tint color.";
+}
+uniform_float uTintColorG {
+    default = 0.13;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Tint Green";
+    description = "Green component of underwater tint color.";
+}
+uniform_float uTintColorB {
+    default = 0.23;
+    min = 0.0;
+    max = 1.0;
+    step = 0.01;
+    display_name = "Tint Blue";
+    description = "Blue component of underwater tint color.";
+}
+uniform_bool uBrightnessAdjustEnabled {
+    default = true;
+    description = "Enable brightness adjustment for underwater effects.";
+    header = "Brightness";
+}
+uniform_float uBrightnessAdjust {
+    default = 1.0;
+    min = 0.5;
+    max = 2.0;
+    step = 0.05;
+    description = "Adjust overall brightness of underwater scene (1.0 = default).";
+}
+uniform_bool uSaturationAdjustEnabled {
+    default = true;
+    description = "Enable saturation adjustment for underwater effects.";
+    header = "Saturation";
+}
+uniform_float uSaturationAdjust {
+    default = 1.2;
+    min = 0.0;
+    max = 2.0;
+    step = 0.05;
+    description = "Adjust color saturation underwater (0=grayscale, 1=normal, 2=enhanced).";
+}
+uniform_bool uDithering {
+    default = true;
+    display_name = "Dithering";
+    description = "Apply dithering to reduce banding artifacts";
+    header = "Dithering";
+}
+uniform_float uDitherStrength {
+    default = 128;
+    min = 1.0;
+    max = 255.0;
+    step = 1.0;
+    display_name = "Dither intensity";
+    description = "Lower value decreases more banding but makes the dithering more visible.";
+}
+uniform_bool uTemporalDither {
+    default = false;
+    display_name = "Temporal Dithering";
+    description = "Change the dither pattern temporally, may result in less banding but more visible dithering.";
+}
+
+uniform_float uWaterDetectionMargin {
+    default = 10.0;
+    min = 0.0;
+    max = 50.0;
+    step = 1.0;
+    display_name = "Water Detection Margin";
+    description = "Additional margin to detect water (higher values make underwater effects more consistent across regions).";
+}
+
+uniform_bool uShowDebugInfo {
+    default = false;
+    display_name = "Show Debug Info";
+    description = "Display water detection information for debugging.";
+    header = "Debug";
+}
+
+shared {
+    vec3 screen_space_dither(vec2 frag_coord) {
+        vec3 dither = vec3(dot(vec2(171.0, 231.0), frag_coord));
+        dither.rgb = fract(dither.rgb / vec3(103.0, 71.0, 97.0));
+        return (dither.rgb - 0.5) / uDitherStrength;
+    }
+    
+    vec3 getWorldPosition(vec2 texCoord) {
+        float depth = omw_GetDepth(texCoord);
+        vec4 clip_space = vec4(texCoord * 2.0 - 1.0, 1 - depth, 1.0);
+        vec4 world_space = omw.invViewMatrix * (omw.invProjectionMatrix * clip_space);
+        return world_space.xyz / world_space.w;
+    }
+    
+    vec3 adjustSaturation(vec3 color, float saturation) {
+        float luminance = dot(color, vec3(0.299, 0.587, 0.114));
+        return mix(vec3(luminance), color, saturation);
+    }
+    
+    bool isCausticsActive() {
+        return uCausticsEnabled &&
+            omw.gameHour >= 9.0 && omw.gameHour <= 18.0 &&
+            omw.sunVis > 0.2;
+    }
+    
+    float getEffectsFadeFactor() {
+        float timeFactor = smoothstep(8.0, 9.0, omw.gameHour) * 
+                        smoothstep(19.0, 18.0, omw.gameHour);
+        
+        float weatherFactor = smoothstep(0.1, 0.3, omw.sunVis);
+        
+        return timeFactor * weatherFactor;
+    }
+    
+    float computeCaustics(vec2 uv, float time, float depth) {
+        float depthFactor = smoothstep(0.3, 3.0, depth);
+        uv *= mix(1.0, 1.5, depthFactor);
+        float noise = sin(uv.x * 0.18 + time * 0.9) * 0.5 +
+                      cos(uv.y * 0.16 - time * 1.0) * 0.5 +
+                      sin((uv.x + uv.y) * 0.14 + time * 1.2) * 0.4 +
+                      cos((uv.x - uv.y) * 0.22 - time * 0.8) * 0.4;
+        return clamp(noise * depthFactor / 3.2, 0.0, 1.0);
+    }
+    
+    float sampleVolumetricLight(vec3 samplePos, float time) {
+        vec3 lightDir = normalize(omw.sunPos.xyz);
+        
+        vec2 causticUV = samplePos.xz * uCausticsScale * 0.5;
+        vec2 offset1 = vec2(time * 0.03, time * -0.02);
+        vec2 offset2 = vec2(time * -0.02, time * 0.04);
+        
+        float pattern1 = computeCaustics(causticUV + offset1, time, 1.0);
+        float pattern2 = computeCaustics(causticUV * 1.7 + offset2, time * 0.8, 0.7);
+        float pattern3 = computeCaustics(causticUV * 0.6 - offset1, time * 1.2, 1.3);
+        
+        float causticPattern = pattern1 * 0.5 + pattern2 * 0.3 + pattern3 * 0.2;
+        
+        float yVariation = sin(samplePos.y * 0.5 + time) * 0.2 + 0.8;
+        causticPattern *= yVariation;
+        
+        float heightFactor = smoothstep(omw.waterHeight, omw.waterHeight - 10.0, samplePos.y);
+        
+        float cosAngle = dot(normalize(omw.eyePos.xyz - samplePos), lightDir);
+        float phase = 0.3 + 0.7 * pow(cosAngle, 1.5);
+        
+        float posNoise = fract(sin(dot(samplePos.xyz, vec3(12.9898, 78.233, 45.164))) * 43758.5453);
+        
+        return causticPattern * phase * heightFactor * (0.7 + 0.3 * posNoise);
+    }
+    
+    // Fixed underwater detection that respects omw.isWaterEnabled
+    bool isUnderwater() {
+        // First check OpenMW's built-in water detection
+        // This fixes the issue with effects applying at certain longitudes
+        if (!omw.isWaterEnabled) {
+            return false;
+        }
+        
+        // Height-based detection with safety margin as a secondary check
+        bool heightBased = omw.eyePos.y < (omw.waterHeight + uWaterDetectionMargin);
+        
+// interior hack removed so interior water is detected by height
+        
+        // Add smooth transition near water surface
+        float distanceToWaterSurface = abs(omw.eyePos.y - omw.waterHeight);
+        float transitionFactor = smoothstep(uWaterDetectionMargin + 5.0, uWaterDetectionMargin, distanceToWaterSurface);
+        
+        // Return true only if both OpenMW thinks we're underwater AND our height check confirms it
+        return heightBased;
+    }
+    
+    // Debug function to visualize water detection
+    vec4 overlayDebugInfo(vec4 color, vec2 texCoord) {
+        if (!uShowDebugInfo) return color;
+        
+        // Only show in top-left corner
+        if (texCoord.x < 0.3 && texCoord.y < 0.2) {
+            // Show water height and eye position
+            float heightDiff = omw.waterHeight - omw.eyePos.y;
+            
+            // Color code based on underwater detection
+            if (isUnderwater()) {
+                return vec4(0.0, 1.0, 0.0, 1.0); // Green if underwater
+            } else {
+                return vec4(1.0, 0.0, 0.0, 1.0); // Red if not underwater
+            }
+        }
+        return color;
+    }
+}
+
+fragment main {
+    omw_In vec2 omw_TexCoord;
+
+    void main() {
+        // If the game indicates that water effects are disabled, return early
+        if (!omw.isWaterEnabled) {
+            omw_FragColor = omw_GetLastShader(omw_TexCoord);
+            return;
+        }
+
+        vec4 sceneColor = omw_GetLastShader(omw_TexCoord);
+        vec3 worldPos = getWorldPosition(omw_TexCoord);
+
+// no interior bail—let the water-effect block run even indoors
+
+        // Apply effects if either the game thinks we are in water,
+        // or our local check says we are underwater (to handle the longitude issue).
+        if (omw.isWaterEnabled || isUnderwater()) {
+            float fadeFactor = getEffectsFadeFactor();
+
+            if (uTintEnabled) {
+                float tintAmount = clamp(uTintStrength, 0.0, 1.0);
+                vec3 tintColor = vec3(uTintColorR, uTintColorG, uTintColorB);
+                sceneColor.rgb = mix(sceneColor.rgb, sceneColor.rgb * tintColor, tintAmount);
+            }
+
+            if (uCausticsEnabled) {
+                vec2 skewFactor = vec2(0.0, 0.35 * worldPos.y);
+                vec2 uv = (worldPos.xz + skewFactor) * uCausticsScale;
+                uv += vec2(fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453) * 0.01);
+                float time = omw.simulationTime * uCausticsSpeed;
+                float depthSample = omw_GetDepth(omw_TexCoord);
+                float caustics = computeCaustics(uv, time, depthSample);
+
+                sceneColor.rgb += sceneColor.rgb * caustics * uCausticsStrength * 0.3 * fadeFactor;
+            }
+
+            if (uVolumetricRaysEnabled) {
+                vec3 rayStart = omw.eyePos.xyz;
+                vec3 rayDir = normalize(worldPos - rayStart);
+
+                float rayLength = min(length(worldPos - rayStart), uVolumetricRaysLength);
+
+                int samples = uVolumetricRaysSamples;
+                float stepSize = rayLength / float(samples);
+
+                float jitter = fract(sin(dot(omw_TexCoord, vec2(12.9898, 78.233))) * 43758.5453);
+                vec3 currentPos = rayStart + rayDir * stepSize * jitter;
+
+                float accumScattering = 0.0;
+                float time = omw.simulationTime * uCausticsSpeed;
+
+                vec3 randomOffset = vec3(
+                    fract(sin(dot(omw_TexCoord, vec2(12.9898, 78.233))) * 43758.5453),
+                    fract(sin(dot(omw_TexCoord, vec2(44.9898, 18.233))) * 23758.5453),
+                    fract(sin(dot(omw_TexCoord, vec2(62.9898, 38.233))) * 13758.5453)
+                ) * 0.02 - 0.01;
+                vec3 jitteredRayDir = normalize(rayDir + randomOffset);
+
+                for (int i = 0; i < samples; i++) {
+                    currentPos += jitteredRayDir * stepSize;
+
+                    if (currentPos.y > omw.waterHeight) continue;
+
+                    float sample = sampleVolumetricLight(currentPos, time);
+
+                    float sampleNoise = fract(sin(float(i) * 0.1 + jitter * 6.28) * 43758.5453) * 0.1 - 0.05;
+                    sample = max(0.0, sample + sampleNoise);
+
+                    float distFactor = 1.0 - float(i) / float(samples);
+                    accumScattering += sample * distFactor;
+                }
+
+                accumScattering *= stepSize * uVolumetricRaysStrength / float(samples);
+
+                vec3 scatteringColor = mix(
+                    vec3(1.0, 0.9, 0.7),
+                    vec3(0.8, 0.95, 0.9),
+                    computeCaustics(worldPos.xz * uCausticsScale, time, omw_GetDepth(omw_TexCoord)) * 0.5
+                ) * accumScattering * omw.sunVis;
+
+                sceneColor.rgb += scatteringColor * fadeFactor;
+            }
+
+            if (uFogEnabled) {
+                vec3 F = vec3(0.0, 0.0, 1.0);
+                vec3 fogPos = vec3(0.0, 0.0, omw.waterHeight + uFogHeight);
+
+                vec3 fogWorldPos = omw_GetWorldPosFromUV(omw_TexCoord) - fogPos;
+                vec3 viewPos = omw.eyePos.xyz - fogPos;
+
+                float FogBrightness = clamp(omw.sunPos.z / 32.0, 1.1, 2.0);
+
+                float a = (omw.isInterior ? uFogDensityInterior : uFogDensity) / 10000.0;
+                vec3 V = viewPos - fogWorldPos;
+                float F_dot_P = dot(F, fogWorldPos);
+                float F_dot_C = dot(F, viewPos);
+                float k = clamp(-sign(F_dot_C), 0.0, 1.0);
+
+                vec3 aV = (a / 2.0) * V;
+                float c1 = k * (F_dot_P + F_dot_C);
+                float c2 = (1.0 - 2.0 * k) * F_dot_P;
+                float F_dot_V = dot(F, V);
+
+                float g = min(c2, 0.0);
+                g = -length(aV) * (c1 - g * g / abs(F_dot_V));
+
+                float fogFactor = 1.0 - clamp(exp2(-g), 0.0, 1.0);
+
+                vec3 fogColour = vec3(uFogColorR, uFogColorG, uFogColorB);
+                vec3 fogColourInterior = vec3(uFogColorInteriorR, uFogColorInteriorG, uFogColorInteriorB);
+                vec3 fogColAdjusted = ((omw.isInterior ? fogColourInterior : fogColour) * FogBrightness);
+
+                sceneColor.rgb = mix(sceneColor.rgb, fogColAdjusted, fogFactor);
+            }
+
+            if (uSaturationAdjustEnabled) {
+                sceneColor.rgb = adjustSaturation(sceneColor.rgb, uSaturationAdjust);
+            }
+
+            if (uBrightnessAdjustEnabled) {
+                sceneColor.rgb *= uBrightnessAdjust;
+            }
+        }
+
+        if (uDithering) {
+            vec2 ditherCoord = omw_TexCoord.xy * omw.resolution;
+            if (uTemporalDither) {
+                ditherCoord += omw.simulationTime;
+            }
+            sceneColor.rgb += screen_space_dither(ditherCoord);
+        }
+
+        // Add debug overlay if enabled
+        sceneColor = overlayDebugInfo(sceneColor, omw_TexCoord);
+
+        omw_FragColor = sceneColor;
+    }
+}
+
+technique {
+    description = "Procedural caustics with underwater tint, volumetric light rays, and volumetric fog";
+    passes = main;
+    version = "1.2";
+    author = "Vegetto (Fog by Epoch)";
+    flags = Disable_AboveWater;
+}

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+url="https://github.com/wareya/OpenMW-PBR/archive/refs/heads/main.zip"
+
+wget -q --show-progress -O "wareya-pbr.zip" "${url}"
+unzip wareya-pbr.zip
+
+mv OpenMW-PBR-main/AUTHORS.md OpenMW-PBR-main/PBR-AUTHORS.md
+mv OpenMW-PBR-main/LICENSE OpenMW-PBR-main/PBR-LICENSE
+mv OpenMW-PBR-main/README.md OpenMW-PBR-main/PBR-README.md
+
+cp -r OpenMW-PBR-main/* ./dev-res/resources
+cp -r OpenMW-PBR-main/* ./stable-res/resources
+
+rm -r wareya-pbr.zip OpenMW-PBR-main

@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+rm -rf stable-res
+
+ref="${1:-0.49}" 
+base_name="openmw-${ref}.0-Linux-64Bit"
+archive_name="${base_name}.tar.gz"
+base_url="https://github.com/OpenMW/openmw/releases/download/openmw-${ref}.0/${archive_name}"
+
+echo "Downloading OpenMW archive for ref: ${ref}"
+wget -q --show-progress -O "${archive_name}" "${base_url}"
+
+echo "Extracting resources folder to $(pwd)/stable-res"
+    
+tar -xzf "${archive_name}" --strip-components=1  "${base_name}/resources"
+    
+echo "Cleaning up archive"
+rm -f "${archive_name}"
+
+mkdir stable-res
+mv resources stable-res
