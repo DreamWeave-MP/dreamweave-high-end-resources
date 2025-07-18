@@ -13,57 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Make script executable
-      run: chmod +x compile-resources
-
     - name: Compile resources
       run: ./compile-resources
 
     - name: Zip resources (for normal humans)
       run: |
-        zip -r stable-resources.zip stable-res
-        zip -r dev-resources.zip dev-res
-
-    - name: Delete existing release if present
-      uses: actions/github-script@v6
-      with:
-        script: |
-          try {
-            const release = await github.rest.repos.getReleaseByTag({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              tag: 'resources-release'
-            });
-            
-            // Delete all existing assets first
-            for (const asset of release.data.assets) {
-              await github.rest.repos.deleteReleaseAsset({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                asset_id: asset.id
-              });
-            }
-            
-            await github.rest.repos.deleteRelease({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              release_id: release.data.id
-            });
-            
-            await github.rest.git.deleteRef({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'tags/resources-release'
-            });
-            
-            console.log('Deleted old release');
-          } catch (error) {
-            if (error.status === 404) {
-              console.log('No existing release found');
-            } else {
-              core.setFailed(error.message);
-            }
-          }
+        mv stable-res/resources .
+        zip -r stable-resources.zip resources
+        rm -rf resources
+        mv dev-res/resources .
+        zip -r dev-resources.zip resources
+        rm -rf resources
 
     - name: Create release
       uses: softprops/action-gh-release@v2
