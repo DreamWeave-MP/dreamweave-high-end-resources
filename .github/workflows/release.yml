@@ -1,9 +1,7 @@
 name: Build and Release Resources
 
 on:
-  workflow_dispatch:  # Manual trigger
-  schedule:
-    - cron: '0 0 * * *'  # Daily at midnight UTC (optional)
+    push:
 
 jobs:
   build-and-release:
