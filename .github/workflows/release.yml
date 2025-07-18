@@ -2,6 +2,8 @@ name: Build and Release Resources
 
 on:
     push:
+        tags:
+            - "*"
 
 jobs:
   build-and-release:
