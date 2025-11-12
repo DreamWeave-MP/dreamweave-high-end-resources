@@ -4,7 +4,7 @@ set -e
 
 rm -rf stable-res
 
-ref="${1:-0.49}" 
+ref="${1:-0.50}" 
 base_name="openmw-${ref}.0-Linux-64Bit"
 archive_name="${base_name}.tar.gz"
 base_url="https://github.com/OpenMW/openmw/releases/download/openmw-${ref}.0/${archive_name}"
