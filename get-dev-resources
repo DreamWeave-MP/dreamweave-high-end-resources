@@ -4,9 +4,9 @@ set -e
 
 rm -rf dev-res
 
-ref="${1:-429305401ee7486f160cb1bbd2196fc80d33dc3a}" 
+ref="${1:-472240526d59d279ae0699430e018ccd43798978}" 
 # K1ll's builds are actual dailies
-date="${2:-20251111}"
+date="${2:-20251125}"
 base_name="openmw-${date}-${ref}-Linux-64Bit"
 archive_name="${base_name}.tar.gz"
 base_url="https://redfortune.de/openmw/nightly/${archive_name}"
