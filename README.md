@@ -5,7 +5,6 @@ This repository contains a selection of shader mods which typically cannot be pr
 The following are bundled in DW-Resources:
 
 - Components of OpenMW, specifically the `resources` directory shipped in Linux builds (they are not platform-specific)
-- [OWSE](https://www.nexusmods.com/morrowind/mods/56186) is bundled into the repository as its NexusMods source means there is no means to acquire it in CI.
 - [Wareya's PBR shader](https://github.com/wareya/OpenMW-PBR/tree/main)
 
 Licenses for bundled content allow for redistribution. Zero modifications are made to ANY of the source files, they are simply repackaged and bundled here for your convenience and ease of use.
