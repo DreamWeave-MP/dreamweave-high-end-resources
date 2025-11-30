@@ -6,5 +6,4 @@ echo "Beginning resource build . . ."
 
 ./get-dev-resources \
     && ./get-stable-resources \
-    && ./get-wareya-pbr \
-    && ./copy-owse
+    && ./get-wareya-pbr

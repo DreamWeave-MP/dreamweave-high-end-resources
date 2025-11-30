@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-echo "Copying OWSE resources to result directory . . ."
-
-cp -r OWSE-res/* dev-res/resources
-cp -r OWSE-res/* stable-res/resources
