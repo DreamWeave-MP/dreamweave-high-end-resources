@@ -21,7 +21,16 @@ jobs:
         mv stable-res/resources .
         zip -r stable-resources.zip resources
         rm -rf resources
+
+        mv dev-res-NOPBR/resources .
+        zip -r dev-resources.zip resources
+        rm -rf resources
+
         mv dev-res/resources .
+        zip -r dev-resources.zip resources
+        rm -rf resources
+
+        mv dev-res-NOPBR/resources .
         zip -r dev-resources.zip resources
         rm -rf resources
 
@@ -30,7 +39,9 @@ jobs:
       with:
         files: |
           dev-resources.zip
+          dev-resources-NOPBR.zip
           stable-resources.zip
+          stable-resources-NOPBR.zip
         make_latest: true
         body: |
           Freshly baked resource packs - now in civilized ZIP format!

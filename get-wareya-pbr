@@ -11,6 +11,9 @@ mv OpenMW-PBR-main/AUTHORS.md OpenMW-PBR-main/PBR-AUTHORS.md
 mv OpenMW-PBR-main/LICENSE OpenMW-PBR-main/PBR-LICENSE
 mv OpenMW-PBR-main/README.md OpenMW-PBR-main/PBR-README.md
 
+cp -r ./dev-res ./dev-res-NOPBR
+cp -r ./stable-res ./stable-res-NOPBR
+
 cp -r OpenMW-PBR-main/* ./dev-res/resources
 cp -r OpenMW-PBR-main/* ./stable-res/resources
 
