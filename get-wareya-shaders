@@ -29,4 +29,4 @@ sed -i -e '/gl_FragData\[0\] = applyFogAtDist(/a\
     gl_FragData[0].w = 0.0;' stable-res/resources/shaders/compatibility/water.frag
 
 sed -i -e '/gl_FragData\[0\] = applyFogAtDist(/a\      
-    gl_FragData[0].w = 0.0;' stable-res/resources/shaders/compatibility/water.frag
+    gl_FragData[0].w = 0.0;' dev-res/resources/shaders/compatibility/water.frag
