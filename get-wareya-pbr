@@ -11,10 +11,16 @@ mv OpenMW-PBR-main/AUTHORS.md OpenMW-PBR-main/PBR-AUTHORS.md
 mv OpenMW-PBR-main/LICENSE OpenMW-PBR-main/PBR-LICENSE
 mv OpenMW-PBR-main/README.md OpenMW-PBR-main/PBR-README.md
 
-cp -r ./dev-res ./dev-res-NOPBR
-cp -r ./stable-res ./stable-res-NOPBR
+cp -r ./dev-res ./dev-res-NOPBR-war-water
+cp -r ./dev-res-vanilla-water ./dev-res-NOPBR-vanilla-water
+
+cp -r ./stable-res ./stable-res-NOPBR-war-water
+cp -r ./stable-res-vanilla-water ./stable-res-NOPBR-vanilla-water
 
 cp -r OpenMW-PBR-main/* ./dev-res/resources
+cp -r OpenMW-PBR-main/* ./dev-res-vanilla-water/resources
+
 cp -r OpenMW-PBR-main/* ./stable-res/resources
+cp -r OpenMW-PBR-main/* ./stable-res-vanilla-water/resources
 
 rm -r wareya-pbr.zip OpenMW-PBR-main
