@@ -6,6 +6,7 @@ The following are bundled in DW-Resources:
 
 - Components of OpenMW, specifically the `resources` directory shipped in Linux builds (they are not platform-specific)
 - [Wareya's PBR shader](https://github.com/wareya/OpenMW-PBR/tree/main)
+- [Wareya's OpenMW Shaders](https://github.com/wareya/OpenMW-Shaders/tree/main)
 
 Licenses for bundled content allow for redistribution. Zero modifications are made to ANY of the source files, they are simply repackaged and bundled here for your convenience and ease of use.
 
