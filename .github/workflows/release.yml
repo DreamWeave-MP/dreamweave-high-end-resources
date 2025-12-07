@@ -19,35 +19,35 @@ jobs:
     - name: Zip resources (for normal humans)
       run: |
         mv stable-res-war-water/resources .
-        zip -r stable-resources.zip resources
+        zip -r stable-resources-war-water.zip resources
         rm -rf resources
 
         mv stable-res-vanilla-water/resources .
-        zip -r stable-resources.zip resources
+        zip -r stable-resources-vanilla-water.zip resources
         rm -rf resources
 
         mv stable-res-NOPBR-vanilla-water/resources .
-        zip -r stable-resources.zip resources
+        zip -r stable-resources-NOPBR-vanilla-water.zip resources
         rm -rf resources
 
         mv stable-res-NOPBR-war-water/resources .
-        zip -r stable-resources.zip resources
+        zip -r stable-resources-NOPBR-war-water.zip resources
         rm -rf resources
 
         mv dev-res-war-water/resources .
-        zip -r dev-resources.zip resources
+        zip -r dev-resources-war-water.zip resources
         rm -rf resources
 
         mv dev-res-vanilla-water/resources .
-        zip -r dev-resources.zip resources
+        zip -r dev-resources-vanilla-water.zip resources
         rm -rf resources
 
         mv dev-res-NOPBR-vanilla-water/resources .
-        zip -r dev-resources.zip resources
+        zip -r dev-resources-NOPBR-vanilla-water.zip resources
         rm -rf resources
 
         mv dev-res-NOPBR-war-water/resources .
-        zip -r dev-resources.zip resources
+        zip -r dev-resources-NOPBR-war-water.zip resources
         rm -rf resources
 
     - name: Create release
