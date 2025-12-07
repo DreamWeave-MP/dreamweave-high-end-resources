@@ -7,7 +7,7 @@ echo "Retrieving Wareya shaders . . ."
 url="https://github.com/wareya/OpenMW-Shaders/archive/refs/heads/main.zip"
 
 wget -q --show-progress -O "wareya-shaders.zip" "${url}"
-unzip wareya-shaders.zip
+unzip wareya-shaders.zip && rm wareya-shaders.zip
 cd OpenMW-Shaders-main
 
 mv LICENSE war-shad-LICENSE
@@ -25,8 +25,14 @@ rm -r OpenMW-Shaders-main
 cp -r dev-res dev-res-vanilla-water
 cp -r stable-res stable-res-vanilla-water
 
-sed -i -e '/gl_FragData\[0\] = applyFogAtDist(/a\      
-    gl_FragData[0].w = 0.0;' stable-res/resources/shaders/compatibility/water.frag
+awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
+    print $0
+    print "    gl_FragData[0].w = 0.0;"
+    next
+} 1' stable-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile stable-res/resources/shaders/compatibility/water.frag
 
-sed -i -e '/gl_FragData\[0\] = applyFogAtDist(/a\      
-    gl_FragData[0].w = 0.0;' dev-res/resources/shaders/compatibility/water.frag
+awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
+    print $0
+    print "    gl_FragData[0].w = 0.0;"
+    next
+} 1' dev-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile dev-res/resources/shaders/compatibility/water.frag
