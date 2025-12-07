@@ -1,4 +1,9 @@
-dev-res
-stable-res
-dev-res-NOPBR
-stable-res-NOPBR
+dev-res-war-water
+dev-res-vanilla-water
+stable-res-war-water
+stable-res-vanilla-water
+
+dev-res-NOPBR-war-water
+dev-res-NOPBR-vanilla-water
+stable-res-NOPBR-war-water
+stable-res-NOPBR-vanilla-water
