@@ -25,6 +25,13 @@ rm -r OpenMW-Shaders-main
 cp -r dev-res dev-res-vanilla-water
 cp -r stable-res stable-res-vanilla-water
 
+# For variants which do not have the appropriate edits to use the water shader, remove them for deployment
+cd stable-res-vanilla-water/shaders/
+rm water.omwfx waterLite.omwfx waterLite2.omwfx waterNew.omwfx waterUltraLite.omwfx
+cd - && cd dev-res-vanilla-water/shaders
+rm water.omwfx waterLite.omwfx waterLite2.omwfx waterNew.omwfx waterUltraLite.omwfx
+cd -
+
 awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
     print $0
     print "    gl_FragData[0] = vec4(0.0);"
