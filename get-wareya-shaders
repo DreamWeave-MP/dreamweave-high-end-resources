@@ -27,13 +27,13 @@ cp -r stable-res stable-res-vanilla-water
 
 awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
     print $0
-    print "    gl_FragData[0].w = 0.0;"
+    print "    gl_FragData[0] = vec4(0.0);"
     next
 } 1' stable-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile stable-res/resources/shaders/compatibility/water.frag
 
 awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
     print $0
-    print "    gl_FragData[0].w = 0.0;"
+    print "    gl_FragData[0] = vec4(0.0);"
     next
 } 1' dev-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile dev-res/resources/shaders/compatibility/water.frag
 
