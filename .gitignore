@@ -1,9 +1,8 @@
-dev-res-PBR-wareya-water
-dev-res-PBR-vanilla-water
-stable-res-PBR-wareya-water
-stable-res-PBR-vanilla-water
-
-dev-res-NOPBR-wareya-water
-dev-res-NOPBR-vanilla-water
-stable-res-NOPBR-wareya-water
-stable-res-NOPBR-vanilla-water
+dev-res-NOPBR-vanillaWater
+dev-res-NOPBR-wareyaWater
+dev-res-PBR-vanillaWater
+dev-res-PBR-wareyaWater
+stable-res-NOPBR-vanillaWater
+stable-res-NOPBR-wareyaWater
+stable-res-PBR-vanillaWater
+stable-res-PBR-wareyaWater

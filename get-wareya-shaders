@@ -22,13 +22,13 @@ cp -r wareya-shad-LICENSE wareya-shad-README.md shaders ../stable-res/resources/
 cd -
 rm -r OpenMW-Shaders-main
 
-cp -r dev-res dev-res-vanilla-water
-cp -r stable-res stable-res-vanilla-water
+cp -r dev-res dev-res-vanillaWater
+cp -r stable-res stable-res-vanillaWater
 
 # For variants which do not have the appropriate edits to use the water shader, remove them for deployment
-cd stable-res-vanilla-water/resources/vfs/shaders/
+cd stable-res-vanillaWater/resources/vfs/shaders/
 rm water.omwfx waterLite.omwfx waterLite2.omwfx waterNew.omwfx waterUltraLite.omwfx
-cd - && cd dev-res-vanilla-water/resources/vfs/shaders
+cd - && cd dev-res-vanillaWater/resources/vfs/shaders
 rm water.omwfx waterLite.omwfx waterLite2.omwfx waterNew.omwfx waterUltraLite.omwfx
 cd -
 
@@ -44,5 +44,5 @@ awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
     next
 } 1' dev-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile dev-res/resources/shaders/compatibility/water.frag
 
-mv stable-res stable-res-wareya-water
-mv dev-res dev-res-wareya-water
+mv stable-res stable-res-wareyaWater
+mv dev-res dev-res-wareyaWater

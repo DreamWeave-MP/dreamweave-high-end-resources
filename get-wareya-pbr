@@ -11,22 +11,22 @@ mv OpenMW-PBR-main/AUTHORS.md OpenMW-PBR-main/PBR-AUTHORS.md
 mv OpenMW-PBR-main/LICENSE OpenMW-PBR-main/PBR-LICENSE
 mv OpenMW-PBR-main/README.md OpenMW-PBR-main/PBR-README.md
 
-cp -r ./dev-res-wareya-water ./dev-res-NOPBR-wareya-water
-cp -r ./dev-res-vanilla-water ./dev-res-NOPBR-vanilla-water
+cp -r ./dev-res-wareyaWater ./dev-res-NOPBR-wareyaWater
+cp -r ./dev-res-vanillaWater ./dev-res-NOPBR-vanillaWater
 
-cp -r ./stable-res-wareya-water ./stable-res-NOPBR-wareya-water
-cp -r ./stable-res-vanilla-water ./stable-res-NOPBR-vanilla-water
+cp -r ./stable-res-wareyaWater ./stable-res-NOPBR-wareyaWater
+cp -r ./stable-res-vanillaWater ./stable-res-NOPBR-vanillaWater
 
-cp -r OpenMW-PBR-main/* ./dev-res-wareya-water/resources
-cp -r OpenMW-PBR-main/* ./dev-res-vanilla-water/resources
+cp -r OpenMW-PBR-main/* ./dev-res-wareyaWater/resources
+cp -r OpenMW-PBR-main/* ./dev-res-vanillaWater/resources
 
-cp -r OpenMW-PBR-main/* ./stable-res-wareya-water/resources
-cp -r OpenMW-PBR-main/* ./stable-res-vanilla-water/resources
+cp -r OpenMW-PBR-main/* ./stable-res-wareyaWater/resources
+cp -r OpenMW-PBR-main/* ./stable-res-vanillaWater/resources
 
-mv stable-res-vanilla-water stable-res-PBR-vanilla-water
-mv stable-res-wareya-water stable-res-PBR-wareya-water
+mv stable-res-vanillaWater stable-res-PBR-vanillaWater
+mv stable-res-wareyaWater stable-res-PBR-wareyaWater
 
-mv dev-res-vanilla-water dev-res-PBR-vanilla-water
-mv dev-res-wareya-water dev-res-PBR-wareya-water
+mv dev-res-vanillaWater dev-res-PBR-vanillaWater
+mv dev-res-wareyaWater dev-res-PBR-wareyaWater
 
 rm -r wareya-pbr.zip OpenMW-PBR-main
