@@ -4,6 +4,8 @@ set -e
 
 echo "Beginning resource build . . ."
 
+rm -rf dev-res-* stable-res-*
+
 ./get-dev-resources \
     && ./get-stable-resources \
     && ./get-wareya-shaders \
