@@ -18,50 +18,18 @@ jobs:
 
     - name: Zip resources (for normal humans)
       run: |
-        mv stable-res-war-water/resources .
-        zip -r stable-resources-war-water.zip resources
-        rm -rf resources
-
-        mv stable-res-vanilla-water/resources .
-        zip -r stable-resources-vanilla-water.zip resources
-        rm -rf resources
-
-        mv stable-res-NOPBR-vanilla-water/resources .
-        zip -r stable-resources-NOPBR-vanilla-water.zip resources
-        rm -rf resources
-
-        mv stable-res-NOPBR-war-water/resources .
-        zip -r stable-resources-NOPBR-war-water.zip resources
-        rm -rf resources
-
-        mv dev-res-war-water/resources .
-        zip -r dev-resources-war-water.zip resources
-        rm -rf resources
-
-        mv dev-res-vanilla-water/resources .
-        zip -r dev-resources-vanilla-water.zip resources
-        rm -rf resources
-
-        mv dev-res-NOPBR-vanilla-water/resources .
-        zip -r dev-resources-NOPBR-vanilla-water.zip resources
-        rm -rf resources
-
-        mv dev-res-NOPBR-war-water/resources .
-        zip -r dev-resources-NOPBR-war-water.zip resources
-        rm -rf resources
+        for dir in ./*-res-*/; do
+          target=$(echo $dir | cut -f 2 -d /)
+          mv $target/resources .
+          zip -r $target.zip resources
+          rm -rf resources
+        done
 
     - name: Create release
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          dev-resources-war-water.zip
-          dev-resources-vanilla-water.zip
-          dev-resources-NOPBR-war-water.zip
-          dev-resources-NOPBR-vanilla-water.zip
-          stable-resources-war-water.zip
-          stable-resources-vanilla-water.zip
-          stable-resources-NOPBR-war-water.zip
-          stable-resources-NOPBR-vanilla-water.zip
+          resources-*.zip
         make_latest: true
         body: |
           Freshly baked resource packs - now in civilized ZIP format!
