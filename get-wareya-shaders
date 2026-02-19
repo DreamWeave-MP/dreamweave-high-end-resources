@@ -10,14 +10,14 @@ wget -q --show-progress -O "wareya-shaders.zip" "${url}"
 unzip wareya-shaders.zip && rm wareya-shaders.zip
 cd OpenMW-Shaders-main
 
-mv LICENSE war-shad-LICENSE
-mv README.md war-shad-README.md
+mv LICENSE wareya-shad-LICENSE
+mv README.md wareya-shad-README.md
 
 mv EXPERIMENTS/* shaders
 rm -r EXPERIMENTS
 
-cp -r war-shad-LICENSE war-shad-README.md shaders ../dev-res/resources/vfs
-cp -r war-shad-LICENSE war-shad-README.md shaders ../stable-res/resources/vfs
+cp -r wareya-shad-LICENSE wareya-shad-README.md shaders ../dev-res/resources/vfs
+cp -r wareya-shad-LICENSE wareya-shad-README.md shaders ../stable-res/resources/vfs
 
 cd -
 rm -r OpenMW-Shaders-main
@@ -44,5 +44,5 @@ awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
     next
 } 1' dev-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile dev-res/resources/shaders/compatibility/water.frag
 
-mv stable-res stable-res-war-water
-mv dev-res dev-res-war-water
+mv stable-res stable-res-wareya-water
+mv dev-res dev-res-wareya-water
