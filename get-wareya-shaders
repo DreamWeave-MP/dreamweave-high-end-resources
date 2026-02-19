@@ -26,9 +26,9 @@ cp -r dev-res dev-res-vanilla-water
 cp -r stable-res stable-res-vanilla-water
 
 # For variants which do not have the appropriate edits to use the water shader, remove them for deployment
-cd stable-res-vanilla-water/shaders/
+cd stable-res-vanilla-water/resources/vfs/shaders/
 rm water.omwfx waterLite.omwfx waterLite2.omwfx waterNew.omwfx waterUltraLite.omwfx
-cd - && cd dev-res-vanilla-water/shaders
+cd - && cd dev-res-vanilla-water/resources/vfs/shaders
 rm water.omwfx waterLite.omwfx waterLite2.omwfx waterNew.omwfx waterUltraLite.omwfx
 cd -
 
