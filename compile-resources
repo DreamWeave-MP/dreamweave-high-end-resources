@@ -9,4 +9,5 @@ rm -rf dev-res-* stable-res-*
 ./get-dev-resources \
     && ./get-stable-resources \
     && ./get-wareya-shaders \
-    && ./get-wareya-pbr
+    && ./get-wareya-pbr \
+    && ./get-kart-shaders

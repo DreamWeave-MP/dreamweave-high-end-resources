@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo "Retrieving Kartoffel shaders . . ."
+
+url="https://github.com/kartoffels123/kart-openmw-shaders-collection/archive/refs/heads/master.zip"
+
+wget -q --show-progress -O "kartoffel-shaders.zip" "${url}"
+unzip -o kartoffel-shaders.zip && rm kartoffel-shaders.zip
+cd kart-openmw-shaders-collection-master
+
+mv LICENSE kart-shad-LICENSE
+mv ReadMe.MD kart-shad-README.md
+
+for dir in ../*-res-*/; do
+    target=$(echo $dir | cut -f 2 -d /)
+
+    cp -r ../$target ../$target-vanillaShadows
+
+    cp kart-shad-README.md kart-shad-LICENSE ../$target/resources/vfs
+    cp -r shadows-performance-core/shaders ../$target/resources
+    mv ../$target ../$target-softShadows
+done
+
+for dir in ../*res-NOPBR-*/; do
+    target=$(echo $dir | cut -f 2 -d /)
+    target_toon=$(echo $target | sed "s/NOPBR/TOON/")
+    cp -r ../$target ../$target_toon
+
+    cp -r toon-core/shaders ../$target_toon/resources
+    cp -r toon-post-processing/shaders ../$target_toon/resources/vfs
+done
+
+cd -
+rm -r kart-openmw-shaders-collection-master
