@@ -44,5 +44,18 @@ awk '/gl_FragData\[0\] = applyFogAtDist\(/ {
     next
 } 1' dev-res/resources/shaders/compatibility/water.frag > tmpfile && mv tmpfile dev-res/resources/shaders/compatibility/water.frag
 
+touch stable-res/settings.cfg
+cat << 'EOF' >> stable-res/settings.cfg
+# https://github.com/wareya/OpenMW-Shaders/tree/main?tab=readme-ov-file#using-the-water-shader
+[Water]
+reflection detail = 0
+refraction = false
+rtt size = 512
+shader = true
+rain ripple detail = 1
+
+EOF
+cp stable-res/settings.cfg dev-res/settings.cfg
+
 mv stable-res stable-res-wareyaWater
 mv dev-res dev-res-wareyaWater

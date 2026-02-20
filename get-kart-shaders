@@ -20,6 +20,24 @@ for dir in ../*-res-*/; do
 
     cp kart-shad-README.md kart-shad-LICENSE ../$target/resources/vfs
     cp -r shadows-performance-core/shaders ../$target/resources
+    touch ../$target/settings.cfg
+    cat << EOF >> ../$target/settings.cfg
+# https://github.com/kartoffels123/kart-openmw-shaders-collection/tree/master?tab=readme-ov-file#shadow-settings-settingscfg
+[Shadows]
+enable shadows = true
+shadow map resolution = 512
+number of shadow maps = 5
+maximum shadow map distance = 8192
+shadow fade start = 0.9
+polygon offset factor = 2
+polygon offset units = 4.0
+normal offset distance = 8.0
+actor shadows = true
+player shadows = true
+terrain shadows = true
+object shadows = true
+
+EOF
     mv ../$target ../$target-softShadows
 done
 
@@ -30,6 +48,23 @@ for dir in ../*res-NOPBR-*/; do
 
     cp -r toon-core/shaders ../$target_toon/resources
     cp -r toon-post-processing/shaders ../$target_toon/resources/vfs
+    touch ../$target_toon/settings.cfg
+    cat << EOF >> ../$target_toon/settings.cfg
+# https://github.com/kartoffels123/kart-openmw-shaders-collection/tree/master?tab=readme-ov-file#required-settings-settingscfg
+[Shaders]
+force shaders = true
+force per pixel lighting = true
+clamp lighting = false
+lighting method = shaders
+classic falloff = false
+minimum interior brightness = 0.5
+
+[Post Processing]
+enabled = true
+transparent postpass = true
+chain = toon
+
+EOF
 done
 
 cd -
