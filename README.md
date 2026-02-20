@@ -16,3 +16,19 @@ The only functional modification to any of the contents of this archive, is the 
 While this resource pack was originally intended exclusively for high end machines running wareya's PBR shaders, it is now intended to provide clean resource directories with optional improved shaders for everyone's ease of use. However, PBR archives are available if you've got the GPU headroom.
 
 Speaking of GPU headroom, the [Morrowind Watercolor HD Upscale](https://www.nexusmods.com/morrowind/mods/56990) and [Tamriel Data and OAAB Watercolor Upscale](https://www.nexusmods.com/morrowind/mods/57094) are both highly recommended for use with PBR variants of this module for consistency, beauty, and further ease of use.
+
+## Installation
+
+There are various release options available according to your preference.
+
+Pick the following:
+1. Whether you use a `stable` or `dev` build of OpenMW
+2. Whether to use Wareya's water shader (recommended!!)
+3. Whether to use Kartoffel's soft shadows shader (recommended!!)
+4. Whether to use Wareya's PBR, Kartoffels' toon shader, or neither
+5. Download the appropriate release.
+6. **RENAME YOUR SETTINGS.CFG TO _SETTINGS.CFG!**
+7. Extract it anywhere, preferably next to your default [user openmw.cfg](https://openmw.readthedocs.io/en/stable/reference/modding/paths.html#configuration-files-and-log-files). On Windows, this is in `Documents/My Games/OpenMW`.
+8. Assuming you extracted the resources directory next to openmw.cfg, open openmw.cfg in a text editor and add this line: `resources=resources`
+9. Most releases have a `settings.cfg` including the necessary changes to make the shaders work. If one was included, reapply the changes from your _settings.cfg to it. If not, rename `_settings.cfg`, back to `settings.cfg`.
+10. Done!
