@@ -17,6 +17,11 @@ version_commit=$(echo $version_content | cut -f 2 -d ':')
 
 echo Downloaded development OpenMW archive for development build of version: ${version_number}, commit: ${version_commit}, cleaning up archive
 
+if [[ $GITHUB_ACTIONS ]]; then
+  echo "OPENMW_DEV_VERSION=${version_number}" >> $GITHUB_OUTPUT
+  echo "OPENMW_DEV_COMMIT=${version_commit}" >> $GITHUB_OUTPUT
+fi
+
 mkdir dev-res
 cp -rf resources/vfs-mw/* resources/vfs
 rm -rf resources/vfs-mw

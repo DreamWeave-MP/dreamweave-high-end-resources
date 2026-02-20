@@ -9,13 +9,22 @@ base_name="openmw-${ref}.0-Linux-64Bit"
 archive_name="${base_name}.tar.gz"
 base_url="https://github.com/OpenMW/openmw/releases/download/openmw-${ref}.0/${archive_name}"
 
-echo "Downloading OpenMW archive for ref: ${ref}"
+echo Downloading OpenMW archive for version: ${ref}
 wget -q --show-progress -O "${archive_name}" "${base_url}"
 
-echo "Extracting resources folder to $(pwd)/stable-res"
-    
+echo Extracting resources folder to $(pwd)/stable-res
+
 tar -xzf "${archive_name}" --strip-components=1  "${base_name}/resources"
-    
+
+version_content=$(cat resources/version | tr -d \\r | tr \\n ':')
+version_number=$(echo $version_content | cut -f 1 -d ':')
+version_commit=$(echo $version_content | cut -f 2 -d ':')
+
+if [[ $GITHUB_ACTIONS ]]; then
+  echo "OPENMW_STABLE_VERSION=${version_number}" >> $GITHUB_OUTPUT
+  echo "OPENMW_STABLE_COMMIT=${version_commit}" >> $GITHUB_OUTPUT
+fi
+
 echo "Cleaning up archive"
 rm -f "${archive_name}"
 
