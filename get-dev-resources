@@ -21,4 +21,6 @@ echo "Cleaning up archive"
 rm -f "${archive_name}"
 
 mkdir dev-res
+cp -rf resources/vfs-mw/* resources/vfs
+rm -rf resources/vfs-mw
 mv resources dev-res
