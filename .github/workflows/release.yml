@@ -36,5 +36,5 @@ jobs:
           Freshly baked resource packs - now in civilized ZIP format!
           • Built: ${{ github.run_number }}
           • Commit: ${{ github.sha }}
-          • OpenMW Stable: Version: ${{ steps.compile.outputs.OPENMW_STABLE_VERSION }} Commit: ${{ steps.compile.outputs.OPENMW_STABLE_COMMIT }}
-          • OpenMW Dev: Version: ${{ steps.compile.outputs.OPENMW_DEV_VERSION }} Commit: ${{ steps.compile.outputs.OPENMW_DEV_COMMIT }}
+          • OpenMW Stable: Version: ${{ steps.compile.outputs.OPENMW_STABLE_VERSION }} Commit: [${{ steps.compile.outputs.OPENMW_STABLE_COMMIT }}](https://gitlab.com/OpenMW/openmw/-/commit/${{ steps.compile.outputs.OPENMW_STABLE_COMMIT }})
+          • OpenMW Dev: Version: ${{ steps.compile.outputs.OPENMW_DEV_VERSION }} Commit: [${{ steps.compile.outputs.OPENMW_DEV_COMMIT }}](https://gitlab.com/OpenMW/openmw/-/commit/${{ steps.compile.outputs.OPENMW_STABLE_COMMIT }})
